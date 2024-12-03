@@ -17,7 +17,11 @@ export default {
       colors: {
         primary : {
           10 : "#29A56C",
+          20:"#ebfaf3"
 
+        },
+        secondary:{
+          10 :"#F3F4F6"
         },
         neutral : {
           10 : "#253D4E",  // for heading
