@@ -21,7 +21,8 @@ export default {
         },
         neutral : {
           10 : "#253D4E",  // for heading
-          20 : "#4A4A4A"   // for body text
+          20 : "#4A4A4A",  // for body text
+          30 : "#6b7280"   // header nav links 
         },
       },
     },
