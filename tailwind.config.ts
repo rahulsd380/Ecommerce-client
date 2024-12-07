@@ -17,12 +17,21 @@ export default {
       colors: {
         primary : {
           10 : "#29A56C",
+          20:"#ebfaf3"
 
+        },
+        secondary:{
+          10 :"#F3F4F6"
         },
         neutral : {
           10 : "#253D4E",  // for heading
-          20 : "#4A4A4A"   // for body text
+          20 : "#4A4A4A",  // for body text
+          30 : "#6b7280"   // header nav links 
+
         },
+      },
+      backgroundImage: {
+        'hero-bg': "url('/assets/images/hero_bg.svg')",
       },
     },
   },
