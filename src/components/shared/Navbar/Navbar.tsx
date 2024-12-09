@@ -23,7 +23,7 @@ interface MenuItemProps {
 const NavLink = ({ href, children, className = "" }: NavLinkProps) => (
   <Link
     href={href}
-    className={`text-neutral-30 hover:text-black font-medium text-xs ${className}`}
+    className={`text-neutral-30 hover:text-black font-medium text-[8px] sm:text-xs ${className}`}
   >
     {children}
   </Link>
@@ -42,9 +42,7 @@ const NavLink2 = ({
     <Link
       href={href}
       className={`text-neutral-30 justify-center items-center gap-1 hover:text-black font-medium text-base flex h-10 ${
-        isActive
-          ? "text-primary-10  font-bold"
-          : ""
+        isActive ? "text-primary-10  font-bold" : ""
       } ${className}`}
     >
       {children}
@@ -151,23 +149,22 @@ const Navbar = () => {
       {/* nav */}
       <div className="hidden lg:flex flex-col border-b py-3 px-10">
         <div className="flex justify-between">
-        <div className="inline-block bg-primary-10 text-white font-semibold px-4 py-2 rounded-sm hover:bg-green-600 transition">
-          Brouse all Catagories
+          <div className="inline-block bg-primary-10 text-white font-semibold px-4 py-2 rounded-sm hover:bg-green-600 transition">
+            Brouse all Catagories
+          </div>
+          <nav className="flex gap-4 justify-end">
+            <NavLink2 href="/" dropdown>
+              Home{" "}
+            </NavLink2>
+            <NavLink2 href="/shop" dropdown>
+              Shop{" "}
+            </NavLink2>
+            <NavLink2 href="/fruits">Fruits & Vegetables </NavLink2>
+            <NavLink2 href="/beverages">Beverages </NavLink2>
+            <NavLink2 href="/blogs">Blog</NavLink2>
+            <NavLink2 href="/contacts">Contact</NavLink2>
+          </nav>
         </div>
-        <nav className="flex gap-4 justify-end">
-          <NavLink2 href="/" dropdown>
-            Home{" "}
-          </NavLink2>
-          <NavLink2 href="/shop" dropdown>
-            Shop{" "}
-          </NavLink2>
-          <NavLink2 href="/fruits">Fruits & Vegetables </NavLink2>
-          <NavLink2 href="/beverages">Beverages </NavLink2>
-          <NavLink2 href="/blogs">Blog</NavLink2>
-          <NavLink2 href="/contacts">Contact</NavLink2>
-        </nav>
-        </div>
-        
       </div>
 
       {/* Hamburger Menu for Small Screens */}
@@ -178,13 +175,17 @@ const Navbar = () => {
           className="w-6 h-6 cursor-pointer"
           onClick={toggleSidebar}
         />
-        <Link href="/" className="flex items-center gap-3">
-          <Image src={IMAGES.logo} alt="Shopfinity Logo" className="w-16" />
+        <Link href="/" className="flex items-center gap-3 w-48">
+          <Image
+            src={IMAGES.logo}
+            alt="Shopfinity Logo"
+            className="w-10 sm:w-16 ml-4 sm:ml-0"
+          />
           <div>
-            <h1 className="text-primary-10 font-Sora text-2xl font-bold">
+            <h1 className="text-primary-10 font-Sora text-xl sm:text-2xl font-bold">
               Shopfinity
             </h1>
-            <h2 className="text-neutral-20 font-Inter text-xs">
+            <h2 className="text-neutral-20 font-Inter text-[8px] sm:text-xs">
               Find - Pick and Shop.
             </h2>
           </div>
@@ -212,18 +213,42 @@ const Navbar = () => {
           />
         </div>
         <nav className="flex flex-col gap-4 p-4">
+          <div className="flex  gap-4 border-b border-b-neutral-20 py-4">
+            
+            <NavLink href="/" onClick={toggleSidebar}>
+              About us
+            </NavLink>
+            <NavLink href="/" onClick={toggleSidebar}>
+              My Account
+            </NavLink>
+            <NavLink href="/" onClick={toggleSidebar}>
+              Wishlist
+            </NavLink>
+            <NavLink href="/" onClick={toggleSidebar}>
+              Order Tracking
+            </NavLink>
+          </div>
           <NavLink href="/" onClick={toggleSidebar}>
-            About us
-          </NavLink>
-          <NavLink href="/" onClick={toggleSidebar}>
-            My Account
-          </NavLink>
-          <NavLink href="/" onClick={toggleSidebar}>
-            Wishlist
-          </NavLink>
-          <NavLink href="/" onClick={toggleSidebar}>
-            Order Tracking
-          </NavLink>
+              Home
+            </NavLink>
+            <NavLink href="/" onClick={toggleSidebar}>
+            Shop
+            </NavLink>
+            <NavLink href="/" onClick={toggleSidebar}>
+            Fruits & Vegetables
+            </NavLink>
+            <NavLink href="/" onClick={toggleSidebar}>
+            Beverages
+            </NavLink>
+            <div className="flex  gap-4 border-t border-t-neutral-20 py-4">
+            
+            <NavLink href="/" onClick={toggleSidebar}>
+              Profile
+            </NavLink>
+            <NavLink href="/" onClick={toggleSidebar}>
+              Contact us
+            </NavLink>
+          </div>
         </nav>
       </div>
     </div>

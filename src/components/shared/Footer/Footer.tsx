@@ -4,11 +4,39 @@ import Image from "next/image";
 const Footer = () => {
   return (
     <footer className="bg-secondary-10 py-10 text-sm font-sans px-16">
-      <div>
-        <div></div>
-        <div></div>
+      <div className="py-5 md:flex gap-16">
+      <div className="flex items-center flex-1 ">
+          <div className="relative flex-grow">
+            <input
+              type="email"
+              placeholder="Enter your email address"
+              className="w-full px-4 py-2  focus:outline-none  focus:ring-green-400focus:ring-2"
+            />
+            <span className="absolute top-1/2 right-2 transform -translate-y-1/2 text-red-500 text-sm"></span>
+          </div>
+          <button className="bg-primary-10 hover:bg-primary-20 text-white font-medium py-2 px-4 ">
+            Subscribe
+          </button>
+        </div>
+        <div>
+        <div className="flex items-center hidden sm:flex  gap-3 w-48">
+          <Image
+            src={IMAGES.logo}
+            alt="Shopfinity Logo"
+            className="w-10 sm:w-16 ml-4 sm:ml-0"
+          />
+          <div className="sm:flex-col">
+            <h1 className="text-primary-10 font-Sora text-xl sm:text-2xl font-bold">
+              Shopfinity
+            </h1>
+            <h2 className="text-neutral-20 font-Inter text-[8px] sm:text-xs">
+              Find - Pick and Shop.
+            </h2>
+          </div>
+        </div>
+        </div>
       </div>
-      <div className="max-w-full  flex flex-wrap justify-between md:space-x-1 border-t border-b border-neutral-30  py-10  lg:space-y-0">
+      <div className="max-w-full  sm:flex gap-4 justify-between md:space-x-1 border-t border-b border-neutral-30  py-10  lg:space-y-0">
         {/* Help Section */}
         <div className="max-w-[250px] mb-6 ">
           <h3 className="mb-3 text-lg font-bold">Do You Need Help?</h3>
@@ -28,9 +56,9 @@ const Footer = () => {
             </a>
           </p>
         </div>
-        <div className="lg:flex gap-10">
+        <div className="lg:flex gap-5">
           {/* Make Money Section */}
-          <div className="flex-1 min-w-[200px] mb-4">
+          <div className="flex-1 min-w-[180px] mb-4">
             <h3 className="mb-3 text-sm font-bold">Make Money with Us</h3>
             <ul className="space-y-2 text-gray-600">
               <li>Sell on Grogin</li>
@@ -45,7 +73,7 @@ const Footer = () => {
           </div>
 
           {/* Help Section */}
-          <div className="flex-1 min-w-[200px] mb-4">
+          <div className="flex-1 min-w-[180px] mb-4">
             <h3 className="mb-3 text-sm font-bold">Let Us Help You</h3>
             <ul className="space-y-2 text-gray-600">
               <li>Accessibility Statement</li>
@@ -61,7 +89,7 @@ const Footer = () => {
           </div>
 
           {/* About Section */}
-          <div className="flex-1 min-w-[200px] mb-4">
+          <div className="flex-1 min-w-[140px] mb-4">
             <h3 className="mb-3 text-sm font-bold">Get to Know Us</h3>
             <ul className="space-y-2 text-gray-600">
               <li>Careers for Grogin</li>
@@ -81,7 +109,7 @@ const Footer = () => {
                 <Image
                   src={IMAGES.playStore}
                   alt="Google Play"
-                  className="w-full h-10"
+                  className="w-full h-8"
                 />
                 <span className="text-gray-600 text-xs">
                   Download App Get -10% Discount
@@ -93,7 +121,7 @@ const Footer = () => {
                 <Image
                   src={IMAGES.appStore}
                   alt="App Store"
-                  className="w-full h-10"
+                  className="w-full h-8"
                 />
                 <span className="text-gray-600 text-xs">
                   Download App Get -20% Discount

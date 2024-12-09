@@ -23,7 +23,7 @@ const FeatureProductCard: React.FC<ProductCardProps> = ({
   onAddToCart,
 }) => {
   return (
-    <div className="flex flex-col w-[250px] justify-center  p-0.5 rounded-[3px] border border-[rgba(173,173,173,0.25)] bg-white">
+    <div className="flex flex-col min-w-[230px] max-w-[230px] justify-center  p-0.5 rounded-[3px] border border-[rgba(173,173,173,0.25)] bg-white">
       <img
         src={imageUrl}
         alt={name}

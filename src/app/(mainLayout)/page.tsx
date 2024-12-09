@@ -26,7 +26,7 @@ export default function Home() {
   return (
     <div className="">
       <Hero />
-      <div className="sm:flex justify-between sm:space-x-4 p-10 md:px-40  py-6">
+      <div className="sm:flex justify-between sm:space-x-4 p-10 lg:px-40  py-6">
         {cardData.map((card, index) => (
           <Card
             key={index}
@@ -47,7 +47,6 @@ export default function Home() {
           imageSrc={IMAGES.banner1}
           imageAlt="Person holding groceries"
           overlayColor="#FFF5E1D9" 
-          overlayOpacity="0.5"
           backgroundImage="/path-to-background.jpg"
         />
         <ReusableBanner
@@ -58,8 +57,7 @@ export default function Home() {
           buttonUrl="/shop"
           imageSrc={IMAGES.banner2}
           imageAlt="Person holding groceries"
-          overlayColor="#D2EFE1D9;"
-          overlayOpacity="0.5"
+          overlayColor="#D2EFE1D9"
           backgroundImage="/path-to-background.jpg"
         />
       </div>
