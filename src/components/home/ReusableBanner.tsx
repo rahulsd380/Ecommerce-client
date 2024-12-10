@@ -9,9 +9,8 @@ interface ReusableBannerProps {
   buttonUrl?: string;
   imageSrc?: string | StaticImageData;
   imageAlt?: string;
-  overlayColor?: string | null; // Allow string or null
-  overlayOpacity?: string; // Optional opacity as a string
-  backgroundImage?: string | StaticImageData; // Background image path
+  overlayColor?: string | null;
+  backgroundImage?: string | StaticImageData;
 }
 
 const ReusableBanner: React.FC<ReusableBannerProps> = ({
@@ -22,51 +21,21 @@ const ReusableBanner: React.FC<ReusableBannerProps> = ({
   buttonUrl = "/shop",
   imageSrc = "/default-image.png",
   imageAlt = "Banner Image",
-  overlayColor = null, // Optional overlay color
-  overlayOpacity = "0.2", // Optional overlay opacity
-  backgroundImage = IMAGES.home_bg, // Shared background image
+  overlayColor = null,
+  backgroundImage = IMAGES.home_bg,
 }) => {
-  // Convert `backgroundImage` to a URL string
   const backgroundImageUrl =
     typeof backgroundImage === 'string' ? backgroundImage : backgroundImage?.src;
 
   return (
     <div
-      className="relative w-full h-[400px] shadow-lg mb-5 flex  md:flex-row items-center"
+      className="relative w-full md:order-2 shadow-lg mb-5 flex flex-col md:flex-row"
       style={{
-        backgroundImage: `url(${backgroundImageUrl})`,
-        backgroundSize: "cover",
-        backgroundPosition: "center",
+        backgroundColor: overlayColor || "transparent", // Set background color dynamically
       }}
     >
-      {/* Conditional Overlay */}
-      {overlayColor && (
-        <div
-          className="absolute inset-0"
-          style={{
-            backgroundColor: overlayColor,
-            opacity: overlayOpacity,
-            zIndex: 1, // Ensure it layers above background
-          }}
-        ></div>
-      )}
-
-      {/* Content */}
-      <div className="relative z-10 flex-1  p-6 md:p-10">
-        <span className="bg-yellow-200 text-yellow-800 text-sm font-semibold px-2 py-1 rounded-sm inline-block mb-2">
-          {badgeText}
-        </span>
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">{title}</h2>
-        <p className=" text-neutral-30 mb-4">{description}</p>
-        <a
-          href={buttonUrl}
-          className="inline-block bg-primary-10 text-white font-semibold px-4 py-2 rounded-sm hover:bg-green-600 transition"
-        >
-          {buttonText}
-        </a>
-      </div>
       {/* Image */}
-      <div className="relative z-10 w-1/2 h-full">
+      <div className="relative w-full md:order-1 h-[300px] md:h-[400px] lg:h-full md:w-1/2 flex-shrink-0">
         <Image
           src={imageSrc}
           alt={imageAlt}
@@ -74,6 +43,21 @@ const ReusableBanner: React.FC<ReusableBannerProps> = ({
           objectFit="cover"
           className="rounded-sm"
         />
+      </div>
+
+      {/* Content */}
+      <div className="relative justify-start z-10 flex-1 p-6 md:p-10 md:text-left">
+        <span className="bg-yellow-200 text-yellow-800 text-sm font-semibold px-2 py-1 rounded-sm inline-block mb-2">
+          {badgeText}
+        </span>
+        <h2 className="text-2xl font-bold text-gray-800 mb-2">{title}</h2>
+        <p className="text-neutral-500 mb-4">{description}</p>
+        <a
+          href={buttonUrl}
+          className="inline-block bg-primary-10 text-white font-semibold px-4 py-2 rounded-sm hover:bg-green-600 transition"
+        >
+          {buttonText}
+        </a>
       </div>
     </div>
   );
